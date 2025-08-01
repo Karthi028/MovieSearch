@@ -7,7 +7,8 @@ const Base = () => {
     if(!Array.isArray(data)||data.length === 0){
         return <div className='flex flex-col justify-center items-center'>
             <p className='text-lg font-semibold'>Unable to Retrive Data from Database</p>
-            <h1 className='text-sm font-semibold text-gray-400 mb-10'>Try after some time!!!</h1>
+            <h1 className='text-sm font-semibold text-gray-400'>Try after some time!!!</h1>
+            <p className="text-[8px] text-red-300 font-semibold">Daily Search Limit Reached</p>
         </div>
     }
     const movies = data.Search;

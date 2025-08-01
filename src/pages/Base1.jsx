@@ -5,14 +5,6 @@ const Base1 = () => {
   const navigate = useNavigate();
   const data = useLoaderData();
 
-  if (!Array.isArray(data) || data.length === 0) {
-    return <div className='flex flex-col justify-center items-center'>
-      <p className='text-lg font-semibold'>Unable to Retrive Data from Database</p>
-      <h1 className='text-sm font-semibold text-gray-400'>Try after some time!!!</h1>
-      <p className="text-[8px] text-red-300 font-semibold">Daily Search Limit Reached</p>
-    </div>
-  }
-
   const movies = data.Search;
   const Movies = movies.map((movie, index) => {
     return <div key={index} className="w-55 h-80 mb-5" onClick={() => {

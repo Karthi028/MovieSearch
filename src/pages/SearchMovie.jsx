@@ -6,9 +6,9 @@ const SearchMovie = () => {
     const { number, setnumber } = useContext(Moviecontext);
     const data = useLoaderData();
     const navigate = useNavigate();
-    console.log(data);
-
+    
     if (data.Response === 'False' || data.length === 0 || data === null) {
+
         return <div className='flex flex-col justify-center items-center'>
             <p className='text-lg font-semibold'>No Results For Current Movie!!!!</p>
             <h1 className='text-sm font-semibold text-gray-400 mb-10'>Try Entering some other Movies!!!</h1>
@@ -19,9 +19,7 @@ const SearchMovie = () => {
     if (data.totalResults <= 10) {
 
         const movies = data.Search;
-        console.log(movies)
         const Rendermovie = () => {
-
             return movies.map((movie, index) => {
                 return <div key={index} onClick={() => {
                     localStorage.setItem("movie", JSON.stringify(movie));

@@ -1,19 +1,18 @@
-import { useContext, useEffect } from 'react';
+import { useContext} from 'react';
 import { Outlet, useLoaderData, useNavigate } from 'react-router'
 import { Moviecontext } from '../App';
 
 const SearchMovie = () => {
     const { number, setnumber } = useContext(Moviecontext);
-
-
     const data = useLoaderData();
     const navigate = useNavigate();
+    console.log(data);
 
-    if (!Array.isArray(data) || data.length === 0) {
+    if(data.Response === 'False'||data.length === 0||data === null){
         return <div className='flex flex-col justify-center items-center'>
             <p className='text-lg font-semibold'>No Results For Current Movie!!!!</p>
             <h1 className='text-sm font-semibold text-gray-400 mb-10'>Try Entering some other Movies!!!</h1>
-            <Outlet />
+            <Outlet/>
         </div>
     }
     

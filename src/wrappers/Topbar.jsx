@@ -15,7 +15,7 @@ const Rendering = () => {
         navigate('/Searchmoviepage');
         setTimeout(() => {
             delayloader.classList.add('hidden');
-        }, 10000);
+        }, 4000);
 
     };
 
@@ -63,7 +63,7 @@ const hocWithLoader = (WrappedComponent) => {
         return (
             <div>
                 <WrappedComponent />
-                <h1 id="Delaymsg" className="hidden text-xs text-red-400 font-semibold ml-4 mt-1">Sometimes Loading huge Data might take time please wait...</h1>
+                <h1 id="Delaymsg" className="hidden text-xs text-red-400 font-semibold ml-4 mt-1">Loading Movie Details please wait...</h1>
             </div>
         )
     }

@@ -1,7 +1,7 @@
 import axios from "axios";
 
 
-const baseURL = "http://www.omdbapi.com"
+const baseURL = "https://www.omdbapi.com"
 
 const instance = axios.create({
     baseURL,

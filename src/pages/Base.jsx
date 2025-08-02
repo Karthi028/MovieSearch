@@ -4,6 +4,7 @@ const Base = () => {
 
     const data = useLoaderData();
     const navigate = useNavigate();
+    console.log(data);
 
     if(data && data.Response === 'False'){
         return <div className='flex flex-col justify-center items-center'>
@@ -12,6 +13,7 @@ const Base = () => {
         </div>
     }
     const movies = data.Search;
+     
     const Movies = movies.map((movie, index) => {
         return <div key={index} onClick={() => {
             localStorage.setItem("movie", JSON.stringify(movie));

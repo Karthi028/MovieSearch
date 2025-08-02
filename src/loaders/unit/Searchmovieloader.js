@@ -7,8 +7,11 @@ const Searchmovieloder = async () => {
         const moviename = localStorage.getItem('Name');
         const response = await instance.get(`/?apikey=90f0d45e&s=${moviename}&type=${gern}` || `/?apikey=90f0d45e&s=${moviename}`)
         const Data = response.data;
+        console.log(Data);
         const Totallist = +(Data.totalResults);
+        console.log(Totallist);
         const No = Math.ceil(Totallist / 10);
+        console.log(No);
         let Arry = [];
 
         if (No >= 2) {

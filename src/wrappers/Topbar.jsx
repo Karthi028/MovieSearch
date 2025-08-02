@@ -1,12 +1,9 @@
 import { useNavigate } from "react-router";
-import { Moviecontext } from "../App"
-import { useContext, useState } from "react"
+import { useState } from "react"
 
 const Rendering = () => {
 
-
-    const { movie, setmovie } = useContext(Moviecontext);
-    const [gern, setgern] = useState('')
+    const [setgern] = useState('')
     const navigate = useNavigate();
     const handleForm = async (event) => {
         event.preventDefault();
@@ -21,10 +18,10 @@ const Rendering = () => {
 
     return <div className="flex flex-row justify-start items-center relative">
         <form className="flex items-center gap-2" onSubmit={handleForm}>
-            <input type="text" placeholder="Search by Movie name..." name='text' value={movie}
+            <input id="Moviename" type="text" placeholder="Search by Movie name..." name='text'
                 className="hover:border text-sm p-3 rounded-2xl shadow-2xl ml-3" required
                 onChange={(e) => {
-                    setmovie(e.target.value);
+     
                     localStorage.setItem("Name", e.target.value);
                 }} />
 
@@ -46,7 +43,8 @@ const Rendering = () => {
 
         </form>
         <button onClick={() => {
-            setmovie('');
+            const Moviename = document.getElementById('Moviename')
+            Moviename.value = '';
             const delayloader = document.getElementById('Delaymsg');
             delayloader.classList.add('hidden');
             navigate('/');

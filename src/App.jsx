@@ -4,7 +4,7 @@ import Home from "./pages/Home";
 import Base from "./pages/Base";
 import Base1 from "./pages/Base1";
 import movieloader1 from "./loaders/unit/Movieloader1";
-import { createContext, useState } from "react";
+import { createContext, useRef, useState } from "react";
 import Detailedmovie from "./components/Detailedmovie";
 import Detailedmovieloader from "./loaders/unit/Detailedmovieloader";
 import SearchMovie from "./pages/SearchMovie";
@@ -73,12 +73,11 @@ const Router = createBrowserRouter(routes, {
 
 const App = () => {
 
-  const [movie, setmovie] = useState('');
   const [number,setnumber] = useState(0);
   const [isloading,setisloading] = useState(true);
 
   return <Loadingcontext.Provider value={{isloading,setisloading}}>
-    <Moviecontext.Provider value={{ movie, setmovie,number,setnumber}}>
+    <Moviecontext.Provider value={{number,setnumber}}>
     <RouterProvider
       router={Router}
       future={{

@@ -3,7 +3,7 @@ import { useState } from "react"
 
 const Rendering = () => {
 
-    const [setgern] = useState('')
+    const [gern,setgern] = useState('')
     const navigate = useNavigate();
     const handleForm = async (event) => {
         event.preventDefault();
@@ -27,7 +27,6 @@ const Rendering = () => {
 
             <select className="p-1 rounded-2xl w-[30%] h-11 text-sm italic font-semibold text-gray-400 shadow-2xl hover:border-red-300 hover:border"
                 onChange={(e) => {
-
                     setgern(e.target.value);
                     localStorage.setItem("Gern", e.target.value);
                 }} value={localStorage.getItem("Gern")}>

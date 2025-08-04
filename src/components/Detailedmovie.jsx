@@ -14,8 +14,8 @@ const Detailedmovie = () => {
 
     return (
         <div className="p-3">
-            <div className="flex flex-row justify-start gap-5">
-                <img src={Detmovie.Poster} className="h-100 w-80 rounded-2xl" />
+            <div className="flex flex-col sm:flex-row justify-start gap-5">
+                <img src={Detmovie.Poster} className="h-100 w-80 rounded-2xl " />
                 <div className="text-lg font-semibold">
                     <p>Title: <span className="text-2xl font-semibold text-gray-500">{Detmovie.Title}</span></p>
                     <p>Year: {Detmovie.Year}</p>

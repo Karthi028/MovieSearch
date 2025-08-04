@@ -29,7 +29,7 @@ const Rendering = () => {
                 onChange={(e) => {
                     setgern(e.target.value);
                     localStorage.setItem("Gern", e.target.value);
-                }} value={localStorage.getItem("Gern")}>
+                }} value={localStorage.getItem("Gern")|| ''}>
 
                 <option value=''></option>
                 <option value="movie">Movie</option>

@@ -27,10 +27,10 @@ const SampleMovies = () => {
             </div>
         </div>
     });
-    return <>
+    return <div className="flex flex-col items-center">
         <h1 className="text-center italic font-semibold text-xl text-lime-500 border-[0.5px] p-1 rounded-2xl shadow-2xl w-40 sm:w-50 mt-2 mb-2">Popular Movies</h1>
         <div className="flex flex-row gap-3 flex-wrap justify-around p-2"  >{Movies}</div>
-    </>
+    </div>
 }
 
 export default SampleMovies;

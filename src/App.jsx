@@ -2,8 +2,6 @@ import { createBrowserRouter, RouterProvider } from "react-router";
 import movieloader from "./loaders/unit/Movieloader";
 import Home from "./pages/Home";
 import Base from "./pages/Base";
-import Base1 from "./pages/Base1";
-import movieloader1 from "./loaders/unit/Movieloader1";
 import { createContext, useRef, useState } from "react";
 import Detailedmovie from "./components/Detailedmovie";
 import Detailedmovieloader from "./loaders/unit/Detailedmovieloader";
@@ -23,14 +21,6 @@ const routes = [
         element: <Base/>,
         loader: movieloader,
         hydrateFallbackElement: <div className="text-2xl text-cyan-200 font-bold p-2">Loading Data....</div>,
-
-      },
-      {
-        path: '/Base1',
-        element: <Base1 />,
-        loader: movieloader1,
-        hydrateFallbackElement: <div className="text-2xl text-cyan-200 font-bold p-2">Loading Data....</div>,
-
 
       },
       {

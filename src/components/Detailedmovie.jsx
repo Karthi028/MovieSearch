@@ -3,12 +3,12 @@ import { useLoaderData } from "react-router";
 const Detailedmovie = () => {
 
     const Detmovie = useLoaderData();
-
+    console.log(Detmovie);
     const ratings = Detmovie.Ratings;
-    const rate = ratings.map((rate,index)=>{
-        return<div key={index}>
-        <p className="text-sm text-gray-400">Source: {rate.Source}</p>
-        <p className="text-xs font-semibold">Value: <span className="text-red-300 font-bold">{rate.Value}</span></p>
+    const rate = ratings.map((rate, index) => {
+        return <div key={index}>
+            <p className="text-sm text-gray-400">Source: {rate.Source}</p>
+            <p className="text-xs font-semibold">Value: <span className="text-red-300 font-bold">{rate.Value}</span></p>
         </div>
     })
 
@@ -23,6 +23,30 @@ const Detailedmovie = () => {
                     <p className="text-sm">Plot: {Detmovie.Plot}</p>
                     <p>Actors: {Detmovie.Actors}</p>
                     <div>{rate}</div>
+                    <div className="relative mt-2">
+                    <div className='flex gap-0.5'>
+                        {Array.from({ length: 5}).map((_, index) => (
+                            <img key={index} id={index} width={15}  src="/Estar.png" alt="star" onClick={(e)=>{
+                                const No = e.target.id;
+                                for(let i=0;i<= No;i++){
+                                     const star = document.getElementById(i + 'No');
+                                if(star.classList.contains('hidden')){
+                                    star.classList.remove('hidden');
+                                }
+                                }
+                            }}/>
+                        ))}
+                    </div>
+                    <div id="Star" className='flex gap-0.5 absolute top-0'>
+                        {Array.from({ length: 5}).map((_, index) => (
+                            <img className="hidden" key={index} id={index + 'No'} width={15} src="/Star.png" alt="star" onClick={(e)=>{
+                                const star = e.target;
+                                star.classList.add('hidden')
+                            }}/>
+                        ))}
+                    </div>
+                    </div>
+
                 </div>
             </div>
         </div>

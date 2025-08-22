@@ -18,7 +18,7 @@ const routes = [
     children: [
       {
         path: '/',
-        element: <Base/>,
+        element: <Base />,
         loader: movieloader,
         hydrateFallbackElement: <div className="text-2xl text-cyan-200 font-bold p-2">Loading Data....</div>,
 
@@ -26,7 +26,7 @@ const routes = [
       {
         path: '/Searchmoviepage',
         element: <SearchMovie />,
-        loader:Searchmovieloder,
+        loader: Searchmovieloder,
         children: [
           {
             path: '/Searchmoviepage',
@@ -63,17 +63,29 @@ const Router = createBrowserRouter(routes, {
 
 const App = () => {
 
-  const [number,setnumber] = useState(0);
-  const [isloading,setisloading] = useState(true);
+  const [number, setnumber] = useState(0);
+  const [isloading, setisloading] = useState(true);
+  const [gern, setgern] = useState(()=>{
+    const storedGern = localStorage.getItem("Gern");
+    return storedGern? storedGern:'';
+  });
+  const [year, setyear] = useState(()=>{
+    const storedYear = localStorage.getItem('Year');
+    return storedYear? storedYear:'';
+  });
+  const [movie, setmovie] = useState(()=>{
+    const storedMovie = localStorage.getItem("Name");
+    return storedMovie? storedMovie:''
+  });
 
-  return <Loadingcontext.Provider value={{isloading,setisloading}}>
-    <Moviecontext.Provider value={{number,setnumber}}>
-    <RouterProvider
-      router={Router}
-      future={{
-        v7_startTransition: true,
-      }} />
-  </Moviecontext.Provider>
+  return <Loadingcontext.Provider value={{ isloading, setisloading }}>
+    <Moviecontext.Provider value={{ number, setnumber,setgern,setyear,setmovie,year,movie,gern}}>
+      <RouterProvider
+        router={Router}
+        future={{
+          v7_startTransition: true,
+        }} />
+    </Moviecontext.Provider>
   </Loadingcontext.Provider>
 
 

@@ -1,16 +1,16 @@
 import { useNavigate } from "react-router";
-import { use, useState } from "react"
+import {useContext} from "react"
+import { Moviecontext } from "../App";
 
 const Rendering = () => {
 
-    const [gern,setgern] = useState('');
-    const [year,setyear] = useState('');
-    const [movie,setmovie] = useState('');
+    const{setgern,setyear,setmovie,year,movie,gern} = useContext(Moviecontext);
     const navigate = useNavigate();
     const handleForm = async (event) => {
         event.preventDefault();
         const delayloader = document.getElementById('Delaymsg');
         delayloader.classList.remove('hidden');
+        localStorage.removeItem('Pages');
         navigate('/Searchmoviepage');
         setTimeout(() => {
             delayloader.classList.add('hidden');
@@ -23,13 +23,14 @@ const Rendering = () => {
 
     return <div className="flex flex-row justify-start items-center relative">
         <form className="flex flex-wrap items-center gap-2 w-[90%] pl-3 pr-3" onSubmit={handleForm}>
-            <input id="Moviename" type="text" placeholder="Search by Movie name..." value={name} name='text'
+            <input id="Moviename" type="text" placeholder="Search by Movie name..." value={movie} name='text'
                 className="border border-cyan-200 text-sm p-3 rounded-2xl shadow-2xl" required
                 onChange={(e) => {
                     localStorage.setItem("Name", e.target.value);
                     setmovie(e.target.value);
                 }} />
-
+                <div className="relative">
+            <p className="text-[10px] font-light text-gray-400 top-[-5px] left-1 absolute bg-white ">Gern</p>
             <select className="p-1 rounded-2xl w-20 h-11 text-sm italic font-semibold text-gray-400 shadow-2xl hover:border-red-300 hover:border"
                 onChange={(e) => {
                     setgern(e.target.value);
@@ -42,8 +43,9 @@ const Rendering = () => {
                 <option value="episode">Episode</option>
 
             </select>
+            </div>
 
-            <input id="years" value={Year} onChange={(e)=>{
+            <input id="years" min="1900" max="2100" step={1} value={year} onChange={(e)=>{
                 localStorage.setItem('Year',e.target.value)
                 setyear(e.target.value);
 
@@ -53,10 +55,9 @@ const Rendering = () => {
 
         </form>
         <button onClick={() => {
-            const Moviename = document.getElementById('Moviename');
-            Moviename.value = '';
             const delayloader = document.getElementById('Delaymsg');
             setyear('');
+            setmovie('')
             delayloader.classList.add('hidden');
             navigate('/');
             localStorage.setItem('Name','');
@@ -74,7 +75,7 @@ const hocWithLoader = (WrappedComponent) => {
 
     return function loader() {
         return (
-            <div>
+            <div className="">
                 <WrappedComponent />
                 <h1 id="Delaymsg" className="hidden text-xs text-red-400 font-semibold ml-4 mt-1">Loading Movie Details please wait...</h1>
             </div>

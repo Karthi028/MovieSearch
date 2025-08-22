@@ -31,6 +31,10 @@ few data being retrived might take more time say max 20 to 25 sec ....while the 
 
 pagination has been implimented in case lage data is been recived for search 
 
+In addition for eacresponse ojcet from a API call we have added a key value pair that is ratings and a random No from 1 to 5 for rendering ratings for that movie..
+
+there is a seperate filter for year where we can filter movies by year...
+
 
 
 

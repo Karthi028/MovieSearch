@@ -3,7 +3,7 @@ import { Outlet, useLoaderData, useNavigate } from 'react-router'
 import { Moviecontext } from '../App';
 
 const SearchMovie = () => {
-    const { number, setnumber} = useContext(Moviecontext);
+    const { number, setnumber } = useContext(Moviecontext);
     const load = useLoaderData();
     const local = localStorage.getItem('Pages');
     const data = local ? JSON.parse(local) : load;

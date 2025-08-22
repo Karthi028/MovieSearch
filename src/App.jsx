@@ -65,21 +65,21 @@ const App = () => {
 
   const [number, setnumber] = useState(0);
   const [isloading, setisloading] = useState(true);
-  const [gern, setgern] = useState(()=>{
+  const [gern, setgern] = useState(() => {
     const storedGern = localStorage.getItem("Gern");
-    return storedGern? storedGern:'';
+    return storedGern ? storedGern : '';
   });
-  const [year, setyear] = useState(()=>{
+  const [year, setyear] = useState(() => {
     const storedYear = localStorage.getItem('Year');
-    return storedYear? storedYear:'';
+    return storedYear ? storedYear : '';
   });
-  const [movie, setmovie] = useState(()=>{
+  const [movie, setmovie] = useState(() => {
     const storedMovie = localStorage.getItem("Name");
-    return storedMovie? storedMovie:''
+    return storedMovie ? storedMovie : ''
   });
 
   return <Loadingcontext.Provider value={{ isloading, setisloading }}>
-    <Moviecontext.Provider value={{ number, setnumber,setgern,setyear,setmovie,year,movie,gern}}>
+    <Moviecontext.Provider value={{ number, setnumber, setgern, setyear, setmovie, year, movie, gern }}>
       <RouterProvider
         router={Router}
         future={{

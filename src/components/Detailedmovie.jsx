@@ -3,7 +3,6 @@ import { useLoaderData } from "react-router";
 const Detailedmovie = () => {
 
     const Detmovie = useLoaderData();
-    console.log(Detmovie);
     const ratings = Detmovie.Ratings;
     const rate = ratings.map((rate, index) => {
         return <div key={index}>
@@ -24,32 +23,32 @@ const Detailedmovie = () => {
                     <p>Actors: {Detmovie.Actors}</p>
                     <div>{rate}</div>
                     <div className="relative mt-2">
-                    <div className='flex gap-0.5'>
-                        {Array.from({ length: 5}).map((_, index) => (
-                            <img key={index} id={index} width={15}  src="/Estar.png" alt="star" onClick={(e)=>{
-                                const No = e.target.id;
-                                for(let i=0;i<= No;i++){
-                                     const star = document.getElementById(i + 'No');
-                                if(star.classList.contains('hidden')){
-                                    star.classList.remove('hidden');
-                                }
-                                }
-                            }}/>
-                        ))}
-                    </div>
-                    <div id="Star" className='flex gap-0.5 absolute top-0'>
-                        {Array.from({ length: 5}).map((_, index) => (
-                            <img className="hidden" key={index} id={index + 'No'} width={15} src="/Star.png" alt="star" onClick={(e)=>{
-                                const star = e.target;
-                                star.classList.add('hidden')
-                            }}/>
-                        ))}
-                    </div>
+                        <div className='flex gap-0.5'>
+                            {Array.from({ length: 5 }).map((_, index) => (
+                                <img key={index} id={index} width={15} src="/Estar.png" alt="star" onClick={(e) => {
+                                    const No = e.target.id;
+                                    for (let i = 0; i <= No; i++) {
+                                        const star = document.getElementById(i + 'No');
+                                        if (star.classList.contains('hidden')) {
+                                            star.classList.remove('hidden');
+                                        }
+                                    }
+                                }} />
+                            ))}
+                        </div>
+                        <div id="Star" className='flex gap-0.5 absolute top-0'>
+                            {Array.from({ length: 5 }).map((_, index) => (
+                                <img className="hidden" key={index} id={index + 'No'} width={15} src="/Star.png" alt="star" onClick={(e) => {
+                                    const star = e.target;
+                                    star.classList.add('hidden')
+                                }} />
+                            ))}
+                        </div>
                     </div>
 
                 </div>
             </div>
-            <button onClick={()=>window.history.back()} className="absolute top-4 right-5 hover:scale-130"><img src="/back.png" width={20} alt="" /></button>
+            <button onClick={() => window.history.back()} className="absolute top-4 right-5 hover:scale-130"><img src="/back.png" width={20} alt="" /></button>
         </div>
     )
 }

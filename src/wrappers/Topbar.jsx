@@ -1,10 +1,10 @@
 import { useNavigate } from "react-router";
-import {useContext} from "react"
+import { useContext } from "react"
 import { Moviecontext } from "../App";
 
 const Rendering = () => {
 
-    const{setgern,setyear,setmovie,year,movie,gern} = useContext(Moviecontext);
+    const { setgern, setyear, setmovie, year, movie, gern } = useContext(Moviecontext);
     const navigate = useNavigate();
     const handleForm = async (event) => {
         event.preventDefault();
@@ -29,27 +29,27 @@ const Rendering = () => {
                     localStorage.setItem("Name", e.target.value);
                     setmovie(e.target.value);
                 }} />
-                <div className="relative">
-            <p className="text-[10px] font-light text-gray-400 top-[-5px] left-1 absolute bg-white ">Gern</p>
-            <select className="p-1 rounded-2xl w-20 h-11 text-sm italic font-semibold text-gray-400 shadow-2xl hover:border-red-300 hover:border"
-                onChange={(e) => {
-                    setgern(e.target.value);
-                    localStorage.setItem("Gern", e.target.value);
-                }} value={localStorage.getItem("Gern")|| ''}>
+            <div className="relative">
+                <p className="text-[10px] font-light text-gray-400 top-[-5px] left-1 absolute bg-white ">Gern</p>
+                <select className="p-1 rounded-2xl w-20 h-11 text-sm italic font-semibold text-gray-400 shadow-2xl hover:border-red-300 hover:border"
+                    onChange={(e) => {
+                        setgern(e.target.value);
+                        localStorage.setItem("Gern", e.target.value);
+                    }} value={localStorage.getItem("Gern") || ''}>
 
-                <option value=''></option>
-                <option value="movie">Movie</option>
-                <option value="series">Series</option>
-                <option value="episode">Episode</option>
+                    <option value=''></option>
+                    <option value="movie">Movie</option>
+                    <option value="series">Series</option>
+                    <option value="episode">Episode</option>
 
-            </select>
+                </select>
             </div>
 
-            <input id="years" min="1900" max="2100" step={1} value={year} onChange={(e)=>{
-                localStorage.setItem('Year',e.target.value)
+            <input id="years" min="1900" max="2100" step={1} value={year} onChange={(e) => {
+                localStorage.setItem('Year', e.target.value)
                 setyear(e.target.value);
 
-                }} className="w-20 text-sm p-3 rounded-2xl shadow-2xl ml-1" type="number" placeholder="Year..."/>
+            }} className="w-20 text-sm p-3 rounded-2xl shadow-2xl ml-1" type="number" placeholder="Year..." />
 
             <button type="submit"><img src="/search.png" className="size-10 w-10 rounded shadow-xl p-1 transition-transform duration-100 hover:scale-115 hover:border text-cyan-300" /></button>
 
@@ -60,10 +60,10 @@ const Rendering = () => {
             setmovie('')
             delayloader.classList.add('hidden');
             navigate('/');
-            localStorage.setItem('Name','');
+            localStorage.setItem('Name', '');
             localStorage.removeItem('Pages');
             localStorage.removeItem('movie');
-            localStorage.setItem("Year",'');
+            localStorage.setItem("Year", '');
 
 
 

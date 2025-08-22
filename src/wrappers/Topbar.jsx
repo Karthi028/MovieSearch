@@ -30,7 +30,7 @@ const Rendering = () => {
                     setmovie(e.target.value);
                 }} />
             <div className="relative">
-                <p className="text-[10px] font-light text-gray-400 top-[-5px] left-1 absolute bg-white ">Gern</p>
+                <p className="text-[10px] font-light text-gray-400 top-[-5px] left-1 absolute bg-white rounded-full ">Gern</p>
                 <select className="p-1 rounded-2xl w-20 h-11 text-sm italic font-semibold text-gray-400 shadow-2xl hover:border-red-300 hover:border"
                     onChange={(e) => {
                         setgern(e.target.value);

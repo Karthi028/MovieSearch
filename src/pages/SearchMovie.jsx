@@ -89,17 +89,16 @@ const SearchMovie = () => {
             <p className='p-1 rounded-xl shadow-2xl text-lg text-white border font-bold italic ml-15 mr-15 sm:w-[20%] text-center sm:ml-[40%] mb-1 bg-lime-300'>Search Results</p>
             <div className="flex flex-row gap-4 flex-wrap p-5 mb-10"><Rendermovie /></div>
             <div className='flex justify-center gap-2 mb-5 mt-[-20px]'>
-                <button className='p-1 w-8 rounded-full shadow border-none shadow-amber-400'
-                    onClick={() => {
+                <button onClick={() => {
                         if (number > 0) {
                             setnumber(number - 1)
                         }
-                    }}>-</button>
-                <button className=' bg-yellow-300 text-white font-bold p-1 w-8 rounded-full shadow border-none '>{number}</button>
+                    }}className='p-1 w-8 rounded-full shadow border-none shadow-amber-400 hover:scale-110 hover:bg-amber-500 transition-transform hover:text-white hover:font-bold'>-</button>
+                <button className=' bg-yellow-300 text-white font-bold p-1 w-8 rounded-full shadow border-none'>{number}</button>
                 <button onClick={() => {
                     if (number < (Length - 1))
                         setnumber(number + 1)
-                }} className='p-1 rounded-full shadow border-none shadow-amber-300 w-8 '>+</button>
+                }}className='p-1 rounded-full shadow border-none shadow-amber-300 w-8 hover:scale-110 hover:bg-amber-500 transition-transform hover:text-white hover:font-bold '>+</button>
             </div>
 
             <Outlet />

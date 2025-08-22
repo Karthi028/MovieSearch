@@ -14,9 +14,9 @@ const Detailedmovie = () => {
     return (
         <div className="p-3 relative">
             <div className="flex flex-col sm:flex-row justify-start gap-5">
-                <img src={Detmovie.Poster} className="h-100 w-80 rounded-2xl hover:scale-105 transition-transform" />
+                <img src={Detmovie.Poster} className="h-130 w-90 rounded-2xl hover:scale-105 transition-transform" />
                 <div className="text-lg font-semibold">
-                    <p>Title: <span className="text-2xl font-semibold text-gray-500 hover:text-amber-500">{Detmovie.Title}</span></p>
+                    <p>Title: <span className="text-2xl font-semibold text-gray-500 hover:text-cyan-300">{Detmovie.Title}</span></p>
                     <p>Year: {Detmovie.Year}</p>
                     <p>Gern: {Detmovie.Genre}</p>
                     <p className="text-sm">Plot: {Detmovie.Plot}</p>
@@ -48,7 +48,7 @@ const Detailedmovie = () => {
 
                 </div>
             </div>
-            <button onClick={() => window.history.back()} className="absolute top-4 right-5 hover:scale-130"><img src="/back.png" width={20} alt="" /></button>
+            <button onClick={() => window.history.back()} className="absolute top-4 right-5 hover:scale-130"><img src="/back.png" width={23} alt="" /></button>
         </div>
     )
 }

@@ -49,7 +49,7 @@ const SearchMovie = () => {
         }
         return <div className='p-1 mt-4'>
             <p className='p-1 rounded-xl shadow-2xl text-lg text-white border font-bold italic ml-15 mr-15 sm:w-[20%] text-center sm:ml-[40%] mb-1 bg-lime-300'>Search Results</p>
-            <div className="flex flex-row gap-4 flex-wrap p-5 mb-10"><Rendermovie /></div>
+            <div className="flex flex-row gap-4 flex-wrap justify-center-safe p-5 mb-10"><Rendermovie /></div>
             <Outlet />
         </div>
 
@@ -87,7 +87,7 @@ const SearchMovie = () => {
         }
         return <div className='p-1 mt-4'>
             <p className='p-1 rounded-xl shadow-2xl text-lg text-white border font-bold italic ml-15 mr-15 sm:w-[20%] text-center sm:ml-[40%] mb-1 bg-lime-300'>Search Results</p>
-            <div className="flex flex-row gap-4 flex-wrap p-5 mb-10"><Rendermovie /></div>
+            <div className="flex flex-row gap-4 flex-wrap justify-around p-5 mb-10"><Rendermovie /></div>
             <div className='flex justify-center gap-2 mb-5 mt-[-20px]'>
                 <button onClick={() => {
                         if (number > 0) {
